@@ -4,7 +4,8 @@ import speech_recognition as sr
 from os import path
 import sys
 
-directory = path.dirname(path.realpath(__file__))
+# directory = path.dirname(path.realpath(__file__))
+directory = "/Users/koya/Desktop/Projects/Speech-Recognition"
 
 # try:
 #     AUDIO = directory + '/Converted_Audio/' + sys.argv[1] # Takes name of file as parameter (converted .wav)

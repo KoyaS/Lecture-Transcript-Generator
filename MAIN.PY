@@ -11,8 +11,10 @@ This file will:
 import os
 from os import path
 import convertAudio
+import speechRecognition
 
-directory = path.dirname(path.realpath(__file__))   # This path
+# directory = path.dirname(path.realpath(__file__))   # This path
+directory = "/Users/koya/Desktop/Projects/Speech-Recognition"
 downloads = "/Users/koya/Downloads"                 # Path to downloads
 
 usedAudio = []
@@ -35,3 +37,8 @@ for root,dirs,files in os.walk(downloads):
 for audioFile in usedAudio:
     print('-'*25,'\nAUDIOFILE:',audioFile, '\n' + '-'*25)
     convertAudio.convert(directory+'/Unconverted_Audio/'+audioFile, 'wav', audioFile[:-4])
+    speechRecognition.recognize(audioFile[:-4]+'.wav')
+
+
+
+
