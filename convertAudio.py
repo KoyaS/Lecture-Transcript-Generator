@@ -1,3 +1,4 @@
+import sys
 import requests
 import urllib.request
 
@@ -5,7 +6,17 @@ import urllib.request
 # targetFileType = 'wav'
 # newFileName = 'newAudio'
 
-def convert(unconvertedFileName, targetFileType, newFileName):
+# file to be converted MUST be in unconverted audio folder, probably of type .m4a also
+
+def convert(unconvertedFileName, targetFileType):
+
+    newFileName = unconvertedFileName.split('.')[0]
+    unconvertedFileName = 'Unconverted_Audio/' + unconvertedFileName
+    targetFileType = 'wav'
+
+    print('convertAudio.py: \nConverting - ' + unconvertedFileName + '\nNew file name - ' + newFileName + '\nNew file type - ' + targetFileType)
+
+
     """ Unconverted File Name, relative PATH | Target File Type | New File Name """
     url = "https://api2.online-convert.com/jobs"
 
@@ -64,3 +75,10 @@ def convert(unconvertedFileName, targetFileType, newFileName):
             done = True
         except:
             time.sleep(5)
+    print('\n'*3)
+
+if __name__ == '__main__':
+    unconvertedFileName = sys.argv[1]
+    targetFileType = sys.argv[2]
+
+    convert(unconvertedFileName, targetFileType)
